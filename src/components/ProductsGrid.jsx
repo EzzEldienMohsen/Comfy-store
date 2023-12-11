@@ -20,8 +20,8 @@ const ProductsGrid = () => {
                 alt={prod.attributes.title}
                 className="w-96 h-96 justify-center shadow-xl rounded-t-md object-cover group-hover:scale-95 transition duration-300"
               />
-              <div className="card-body items-center text-center">
-                <h2 className="text-3xl text-center font-bold text-primary capitalize mt-4 tracking-wide">
+              <div className="card-body items-center text-center flex flex-col">
+                <h2 className="text-2xl text-center font-bold text-primary capitalize mt-4 tracking-wide">
                   {prod.attributes.title}
                 </h2>
                 <span className="rounded-box p-4 text-2xl fond-bold text-secondary text-center">
