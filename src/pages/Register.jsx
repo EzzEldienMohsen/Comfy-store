@@ -1,24 +1,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
-import { FormInput, SubmitBtn } from '../components'
-import { Form, Link, redirect } from 'react-router-dom'
-import { autoFetch } from '../utilities'
-import { toast } from 'react-toastify'
+import { FormInput, SubmitBtn } from '../components';
+import { Form, Link, redirect } from 'react-router-dom';
+import { autoFetch } from '../utilities';
+import { toast } from 'react-toastify';
 export var action = async ({ request }) => {
-  var formData = await request.formData()
-  var data = Object.fromEntries(formData)
+  var formData = await request.formData();
+  var data = Object.fromEntries(formData);
   try {
-    var response = await autoFetch.post('/auth/local/register', data)
-    toast.success('account created successfully')
-    return redirect('/login')
+    var response = await autoFetch.post('/auth/local/register', data);
+    toast.success('account created successfully');
+    return redirect('/login');
   } catch (error) {
     var errorMessage =
       error?.response?.data?.error?.message ||
-      'please double check your credentials'
-    toast.error(errorMessage)
-    return null
+      'please double check your credentials';
+    toast.error(errorMessage);
+    return null;
   }
-}
+};
 const Register = () => {
   return (
     <div className="h-screen grid place-items-center">
@@ -44,7 +44,7 @@ const Register = () => {
         </p>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

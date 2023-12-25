@@ -1,11 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import { useDispatch } from 'react-redux'
-import { formatPrice, amountGeneration } from '../utilities'
-import { editItem, removeItem } from '../features/cart/CartSlice'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { formatPrice, amountGeneration } from '../utilities';
+import { editItem, removeItem } from '../features/cart/CartSlice';
+import { Link } from 'react-router-dom';
 const CartItem = ({ cartItem }) => {
-  var dispatch = useDispatch()
+  var dispatch = useDispatch();
 
   var {
     productID,
@@ -16,14 +14,14 @@ const CartItem = ({ cartItem }) => {
     amount,
     company,
     productColor,
-  } = cartItem
-  var newAmount = amount + 5
+  } = cartItem;
+  var newAmount = amount + 5;
   var removeItemFromCart = () => {
-    dispatch(removeItem({ cartID }))
-  }
+    dispatch(removeItem({ cartID }));
+  };
   var handleAmount = (e) => {
-    dispatch(editItem({ cartID, amount: parseInt(e.target.value) }))
-  }
+    dispatch(editItem({ cartID, amount: parseInt(e.target.value) }));
+  };
   return (
     <div
       key={cartID}
@@ -81,7 +79,7 @@ const CartItem = ({ cartItem }) => {
       {/* PRICE */}
       <p className="text-lg font-medium sm:ml-auto">{formatPrice(price)}</p>
     </div>
-  )
-}
+  );
+};
 
-export default CartItem
+export default CartItem;

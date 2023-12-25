@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-import { formatPrice } from '../utilities'
+import React from 'react';
+import { formatPrice } from '../utilities';
 const FormRange = ({ label, name, size }) => {
-  var step = 1000
-  var maxPrice = 100000
-  var [selectedPrice, setSelectedPrice] = React.useState(maxPrice)
+  var step = 1000;
+  var maxPrice = 100000;
+  var [selectedPrice, setSelectedPrice] = React.useState(maxPrice);
   return (
     <div className="form-control">
       <label htmlFor={name} className="label cursor-pointer">
@@ -19,7 +19,7 @@ const FormRange = ({ label, name, size }) => {
         value={selectedPrice}
         name={name}
         onChange={(e) => {
-          setSelectedPrice(e.target.value)
+          setSelectedPrice(e.target.value);
         }}
         step={step}
         className={`range range-primary ${size}`}
@@ -29,7 +29,7 @@ const FormRange = ({ label, name, size }) => {
         <span className="font-bold text-md">Max : {formatPrice(maxPrice)}</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FormRange
+export default FormRange;

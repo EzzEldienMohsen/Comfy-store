@@ -1,21 +1,20 @@
-/* eslint-disable no-unused-vars */
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import { clearCart } from '../features/cart/CartSlice'
-import { logoutUser } from '../features/user/UserSlice'
-import { useQueryClient } from '@tanstack/react-query'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { clearCart } from '../features/cart/CartSlice';
+import { logoutUser } from '../features/user/UserSlice';
+import { useQueryClient } from '@tanstack/react-query';
 
 const Header = () => {
-  var queryCLient = useQueryClient()
-  var navigate = useNavigate()
-  var dispatch = useDispatch()
-  var user = useSelector((state) => state.user.user)
+  var queryCLient = useQueryClient();
+  var navigate = useNavigate();
+  var dispatch = useDispatch();
+  var user = useSelector((state) => state.user.user);
   var handleLogout = () => {
-    navigate('/')
-    dispatch(clearCart())
-    dispatch(logoutUser())
-    queryCLient.removeQueries()
-  }
+    navigate('/');
+    dispatch(clearCart());
+    dispatch(logoutUser());
+    queryCLient.removeQueries();
+  };
   return (
     <div className="bg-neutral py-2 text-neutral-content">
       <div className="flex align-element justify-center sm:justify-end">
@@ -41,7 +40,7 @@ const Header = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

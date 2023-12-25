@@ -1,7 +1,5 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable no-unused-vars */
-import { Filters, Pagination, ProductsContainer } from '../components'
-import { autoFetch } from '../utilities'
+import { Filters, Pagination, ProductsContainer } from '../components';
+import { autoFetch } from '../utilities';
 
 var allProductsQuery = (params) => {
   return {
@@ -16,20 +14,20 @@ var allProductsQuery = (params) => {
       params.page ?? 1,
     ],
     queryFn: () => autoFetch('/products', { params }),
-  }
-}
+  };
+};
 
 export var loader =
   (queryClient) =>
   async ({ request }) => {
     var params = Object.fromEntries([
       ...new URL(request.url).searchParams.entries(),
-    ])
-    var response = await queryClient.ensureQueryData(allProductsQuery(params))
-    var products = response.data.data
-    var meta = response.data.meta
-    return { products, meta, params }
-  }
+    ]);
+    var response = await queryClient.ensureQueryData(allProductsQuery(params));
+    var products = response.data.data;
+    var meta = response.data.meta;
+    return { products, meta, params };
+  };
 const Products = () => {
   return (
     <>
@@ -37,7 +35,7 @@ const Products = () => {
       <ProductsContainer />
       <Pagination />
     </>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

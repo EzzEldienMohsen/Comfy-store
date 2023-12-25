@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
-import { useLoaderData } from 'react-router-dom'
-import day from 'dayjs'
-import advancedFormat from 'dayjs/plugin/advancedFormat'
-day.extend(advancedFormat)
+import { useLoaderData } from 'react-router-dom';
+import day from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+day.extend(advancedFormat);
 
 const OrdersList = () => {
-  var { orders, meta } = useLoaderData()
+  var { orders, meta } = useLoaderData();
   return (
     <div className="mt-8">
       <h4 className="mb-4 capitalize">
@@ -26,8 +25,8 @@ const OrdersList = () => {
           <tbody>
             {orders.map((order) => {
               var { name, address, numItemsInCart, orderTotal, createdAt } =
-                order.attributes
-              var date = day(createdAt).format('hh:mm a - MMM Do, YYYY ')
+                order.attributes;
+              var date = day(createdAt).format('hh:mm a - MMM Do, YYYY ');
               return (
                 <tr key={order.id}>
                   <td>{name}</td>
@@ -36,13 +35,13 @@ const OrdersList = () => {
                   <td>{orderTotal}</td>
                   <td className="hidden sm:block">{date}</td>
                 </tr>
-              )
+              );
             })}
           </tbody>
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrdersList
+export default OrdersList;

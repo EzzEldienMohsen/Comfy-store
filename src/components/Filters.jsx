@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
-import { Form, useLoaderData, Link } from 'react-router-dom'
-import { FormInput, FormCheckBox, FormSelect, FormRange } from '../components'
+import { Form, useLoaderData, Link } from 'react-router-dom';
+import { FormInput, FormCheckBox, FormSelect, FormRange } from '../components';
 const Filters = () => {
-  var { meta, params } = useLoaderData()
+  var { meta, params } = useLoaderData();
   return (
     <Form className="bg-base-200 rounded-md items-center grid px-8 py-4 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {/* SEARCH */}
@@ -57,7 +56,7 @@ const Filters = () => {
         reset
       </Link>
     </Form>
-  )
-}
+  );
+};
 
-export default Filters
+export default Filters;

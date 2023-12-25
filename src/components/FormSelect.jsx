@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 const FormSelect = ({ name, label, list, defaultValue, size }) => {
   return (
     <div className="form-control">
@@ -17,11 +16,11 @@ const FormSelect = ({ name, label, list, defaultValue, size }) => {
             <option key={item} value={item}>
               {item}
             </option>
-          )
+          );
         })}
       </select>
     </div>
-  )
-}
+  );
+};
 
-export default FormSelect
+export default FormSelect;

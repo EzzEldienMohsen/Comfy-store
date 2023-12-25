@@ -1,49 +1,48 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-refresh/only-export-components */
-import { FormInput, SubmitBtn } from '../components'
-import { Form, Link, redirect, useNavigate } from 'react-router-dom'
-import { autoFetch } from '../utilities'
-import { toast } from 'react-toastify'
-import { loginUser } from '../features/user/UserSlice'
-import { useDispatch } from 'react-redux'
+import { FormInput, SubmitBtn } from '../components';
+import { Form, Link, redirect, useNavigate } from 'react-router-dom';
+import { autoFetch } from '../utilities';
+import { toast } from 'react-toastify';
+import { loginUser } from '../features/user/UserSlice';
+import { useDispatch } from 'react-redux';
 export var action =
   (store) =>
   async ({ request }) => {
-    var formData = await request.formData()
-    var data = Object.fromEntries(formData)
+    var formData = await request.formData();
+    var data = Object.fromEntries(formData);
     try {
-      var response = await autoFetch.post('/auth/local', data)
-      store.dispatch(loginUser(response.data))
-      toast.success('successfully logged in')
-      return redirect('/')
+      var response = await autoFetch.post('/auth/local', data);
+      store.dispatch(loginUser(response.data));
+      toast.success('successfully logged in');
+      return redirect('/');
     } catch (error) {
       var errorMessage =
-        error?.response?.data?.error?.message || 'please check your credentials'
-      toast.error(errorMessage)
-      return null
+        error?.response?.data?.error?.message ||
+        'please check your credentials';
+      toast.error(errorMessage);
+      return null;
     }
-  }
+  };
 
 const Login = () => {
-  var dispatch = useDispatch()
-  var navigate = useNavigate()
+  var dispatch = useDispatch();
+  var navigate = useNavigate();
   var handleGuestUser = async () => {
     try {
       var response = await autoFetch.post('/auth/local', {
         identifier: 'test@test.com',
         password: 'secret',
-      })
-      dispatch(loginUser(response.data))
-      toast.success('logged in as a guest')
-      navigate('/')
+      });
+      dispatch(loginUser(response.data));
+      toast.success('logged in as a guest');
+      navigate('/');
     } catch (error) {
       var errorMessage =
         error?.response?.data?.error?.message ||
-        'please double check your credentials'
-      toast.error(errorMessage)
-      return null
+        'please double check your credentials';
+      toast.error(errorMessage);
+      return null;
     }
-  }
+  };
   return (
     <div className="h-screen grid place-items-center">
       <Form
@@ -74,7 +73,7 @@ const Login = () => {
         </p>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

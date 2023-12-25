@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-
 const FormCheckBox = ({ name, label, defaultValue, size }) => {
   return (
     <div className="form-control items-center">
@@ -15,7 +12,7 @@ const FormCheckBox = ({ name, label, defaultValue, size }) => {
         className={`checkbox checkbox-primary ${size}`}
       />
     </div>
-  )
-}
+  );
+};
 
-export default FormCheckBox
+export default FormCheckBox;

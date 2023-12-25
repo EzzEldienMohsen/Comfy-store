@@ -1,22 +1,21 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { ProductsList, ProductsGrid } from '../components'
-import { useLoaderData } from 'react-router-dom'
-import { BsFillGridFill, BsList } from 'react-icons/bs'
-import React from 'react'
+import { ProductsList, ProductsGrid } from '../components';
+import { useLoaderData } from 'react-router-dom';
+import { BsFillGridFill, BsList } from 'react-icons/bs';
+import React from 'react';
 
 const ProductsContainer = () => {
-  var { meta } = useLoaderData()
-  var totalProducts = meta.pagination.total
-  var [layout, setLayout] = React.useState('grid')
+  var { meta } = useLoaderData();
+  var totalProducts = meta.pagination.total;
+  var [layout, setLayout] = React.useState('grid');
 
   var setActiveStyle = (pattern) => {
     return `text-xl btn btn-circle btn-sm ${
       pattern == layout
         ? 'btn btn-primary text-primary-content'
         : 'btn-btn-ghost text-based-content'
-    }`
-  }
+    }`;
+  };
 
   return (
     <>
@@ -51,7 +50,7 @@ const ProductsContainer = () => {
         <ProductsGrid />
       )}
     </>
-  )
-}
+  );
+};
 
-export default ProductsContainer
+export default ProductsContainer;

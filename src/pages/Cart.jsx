@@ -1,17 +1,12 @@
-/* eslint-disable no-unused-vars */
-import { useSelector, useDispatch } from 'react-redux'
-import { SectionTitle, CartItemsList, CartTotals } from '../components'
-import { Link } from 'react-router-dom'
-// import { clearCart } from '../features/cart/CartSlice'
+import { useSelector } from 'react-redux';
+import { SectionTitle, CartItemsList, CartTotals } from '../components';
+import { Link } from 'react-router-dom';
 const Cart = () => {
-  var user = useSelector((state) => state.user.user)
-  var numItemsInCart = useSelector((state) => state.cart.numItemsInCart)
-  //   var dispatch = useDispatch()
-  // var clearTheCart = () => {
-  //   dispatch(clearCart())
-  // }
+  var user = useSelector((state) => state.user.user);
+  var numItemsInCart = useSelector((state) => state.cart.numItemsInCart);
+
   if (numItemsInCart < 1) {
-    return <SectionTitle text={'Your cart is empty...'} />
+    return <SectionTitle text={'Your cart is empty...'} />;
   }
   return (
     <>
@@ -40,7 +35,7 @@ const Cart = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

@@ -12,7 +12,7 @@ const FormInput = ({ type, name, label, defaultValue, size }) => {
         className={`${size} input input-bordered`}
       />
     </label>
-  )
-}
+  );
+};
 
-export default FormInput
+export default FormInput;

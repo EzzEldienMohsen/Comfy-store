@@ -1,8 +1,9 @@
-import { useNavigation } from 'react-router-dom'
+/* eslint-disable react/prop-types */
+import { useNavigation } from 'react-router-dom';
 
 const SubmitBtn = ({ text }) => {
-  var navigation = useNavigation()
-  var isSubmitting = navigation.state === 'submitting'
+  var navigation = useNavigation();
+  var isSubmitting = navigation.state === 'submitting';
   return (
     <button
       type="submit"
@@ -18,7 +19,7 @@ const SubmitBtn = ({ text }) => {
         text || 'submitting'
       )}
     </button>
-  )
-}
+  );
+};
 
-export default SubmitBtn
+export default SubmitBtn;

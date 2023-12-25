@@ -1,38 +1,36 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { useLoaderData } from 'react-router-dom'
-import { autoFetch, formatPrice, amountGeneration } from '../utilities'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { addItem } from '../features/cart/CartSlice'
+import { useLoaderData } from 'react-router-dom';
+import { autoFetch, formatPrice, amountGeneration } from '../utilities';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../features/cart/CartSlice';
 
 var singleProductQuery = (id) => {
   return {
     queryKey: ['singleProduct', id],
     queryFn: () => autoFetch(`/products/${id}`),
-  }
-}
+  };
+};
 
 export var loader =
   (queryCLient) =>
   async ({ params }) => {
-    var { id } = params
-    var data = await queryCLient.ensureQueryData(singleProductQuery(id))
+    var { id } = params;
+    var data = await queryCLient.ensureQueryData(singleProductQuery(id));
 
-    return data
-  }
+    return data;
+  };
 const SingleProduct = () => {
-  var { data } = useLoaderData()
-  var { attributes, id } = data.data
-  var { image, title, colors, price, description, company } = attributes
-  var realPrice = formatPrice(price)
-  var [productColor, setProductColor] = React.useState(colors[0])
-  var [amount, setAmount] = React.useState(1)
+  var { data } = useLoaderData();
+  var { attributes, id } = data.data;
+  var { image, title, colors, price, description, company } = attributes;
+  var realPrice = formatPrice(price);
+  var [productColor, setProductColor] = React.useState(colors[0]);
+  var [amount, setAmount] = React.useState(1);
   var handleAmount = (e) => {
-    setAmount(parseInt(e.target.value))
-  }
+    setAmount(parseInt(e.target.value));
+  };
   var cartProduct = {
     cartID: id + productColor,
     productID: id,
@@ -42,11 +40,11 @@ const SingleProduct = () => {
     price,
     amount,
     company,
-  }
-  var dispatch = useDispatch()
+  };
+  var dispatch = useDispatch();
   var addToCart = () => {
-    dispatch(addItem({ product: cartProduct }))
-  }
+    dispatch(addItem({ product: cartProduct }));
+  };
   return (
     <div>
       <div className="text-sm  breadcrumbs">
@@ -87,7 +85,7 @@ const SingleProduct = () => {
                     style={{ backgroundColor: color }}
                     onClick={() => setProductColor(color)}
                   ></button>
-                )
+                );
               })}
             </div>
           </div>
@@ -114,7 +112,7 @@ const SingleProduct = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SingleProduct
+export default SingleProduct;
