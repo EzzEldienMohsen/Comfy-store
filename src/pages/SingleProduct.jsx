@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import { useLoaderData } from 'react-router-dom';
 import { autoFetch, formatPrice, amountGeneration } from '../utilities';

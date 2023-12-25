@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useLoaderData, redirect } from 'react-router-dom';
 import { SectionTitle, OrdersList, PaginationComplexOne } from '../components';
 import { autoFetch } from '../utilities';

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useSelector } from 'react-redux';
 import { SectionTitle, CartTotals, CheckoutForm } from '../components';
 import { toast } from 'react-toastify';

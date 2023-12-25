@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Filters, Pagination, ProductsContainer } from '../components';
 import { autoFetch } from '../utilities';
 
